@@ -18,27 +18,38 @@
 
 <body class="">
     <div class="bg-slate-400 border rounded-xl text-center flex flex-col justify-center">
-        <a href="./time.html"><button class="m-2 px-4 py-2 shadow-md text-white border-red-900 hover:bg-white hover:text-yellow-900 bg-yellow-700 border-2 rounded-lg">Current Time</button></a>
+        <a href="./time.html"><button
+                class="m-2 px-4 py-2 shadow-md text-white border-red-900 hover:bg-white hover:text-yellow-900 bg-yellow-700 border-2 rounded-lg">Current
+                Time</button></a>
         <hr>
-        <h1 class="m-2 p-1 text-white">Stop Watch</h1>
+        <div class="w-max mx-auto border-4">
+            <h1 id="date" class="px-10 pt-10 bg-slate-500 text-white font-mono font-extrabold text-xl"></h1>
+            <h1 id="time" class="px-10 pb-10 bg-slate-500 text-white font-mono font-extrabold text-xl"></h1>
+        </div>
         <hr>
         <h1 id="fuad" class="text-6xl m-4 p-4 bg-slate-500 rounded-lg shadow-sm text-white">
-            <span id="minute">00</span>:<span id="secound">00</span>.<span id="milisecond" class="text-red-300">00</span>
+            <span id="minute">00</span>:<span id="secound">00</span>.<span id="milisecond"
+                class="text-red-300">00</span>
         </h1>
         <div class="border border-yellow-700 p-2 m-5 rounded-lg">
-            <button id="btn-start" class="m-2 px-4 py-2 shadow-md text-white border-red-900 hover:bg-white hover:text-yellow-900 bg-yellow-700 border-2 rounded-lg">Start</button>
-            <button id="btn-pause" class="hidden m-2 px-4 py-2 shadow-md text-white border-red-900 hover:bg-white hover:text-yellow-900 bg-yellow-700 border-2 rounded-lg">Pause</button>
-            <button id="btn-clear" class="hidden m-2 px-4 py-2 shadow-md text-white border-red-900 hover:bg-white hover:text-yellow-900 bg-yellow-700 border-2 rounded-lg">Clear</button>
+            <button id="btn-start"
+                class="m-2 px-4 py-2 shadow-md text-white border-red-900 hover:bg-white hover:text-yellow-900 bg-yellow-700 border-2 rounded-lg">Start</button>
+            <button id="btn-pause"
+                class="hidden m-2 px-4 py-2 shadow-md text-white border-red-900 hover:bg-white hover:text-yellow-900 bg-yellow-700 border-2 rounded-lg">Pause</button>
+            <button id="btn-clear"
+                class="hidden m-2 px-4 py-2 shadow-md text-white border-red-900 hover:bg-white hover:text-yellow-900 bg-yellow-700 border-2 rounded-lg">Clear</button>
             <div>
-                <button id="lap-time" class="hidden m-2 p-10 shadow-md text-white border-red-900 hover:bg-white hover:text-yellow-900 bg-yellow-700 border-2 rounded-full"></button>
+                <button id="lap-time"
+                    class="hidden m-2 p-10 shadow-md text-white border-red-900 hover:bg-white hover:text-yellow-900 bg-yellow-700 border-2 rounded-full"></button>
             </div>
         </div>
         <div id="lap-btnDiv">
-            <button id="btn-lapclear" class="hidden m-2 px-4 py-2 shadow-md text-white border-red-900 hover:bg-white hover:text-yellow-900 bg-yellow-700 border-2 rounded-lg">Clear</button>
+            <button id="btn-lapclear"
+                class="hidden m-2 px-4 py-2 shadow-md text-white border-red-900 hover:bg-white hover:text-yellow-900 bg-yellow-700 border-2 rounded-lg">Clear</button>
         </div>
         <div id="display-laptime" class="flex flex-col-reverse m-3">
             <!-- <h3> -->
-                <!-- <span>00</span>:<span>00</span>:<span>00</span> -->
+            <!-- <span>00</span>:<span>00</span>:<span>00</span> -->
             <!-- </h3> -->
         </div>
     </div>

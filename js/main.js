@@ -22,6 +22,7 @@ document.getElementById('btn-start').addEventListener('click', function () {
 
     miliSecInterval = setInterval(() => {
 
+
         creatTime('milisecond', miliSec);
         creatTime('secound', sec);
         creatTime('minute', min);
@@ -88,3 +89,40 @@ document.getElementById('btn-lapclear').addEventListener('click', function () {
     serialNo = 1;
     document.getElementById('btn-lapclear').classList.add('hidden')
 })
+
+
+// time
+
+const setTwoDigit = (digit) => {
+    let newTwoDigit = digit.toString()
+    if (newTwoDigit.length === 1) {
+        newTwoDigit = '0' + digit
+    } else {
+        newTwoDigit = digit
+    }
+    return newTwoDigit
+}
+
+const day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+setInterval(() => {
+    let b = (new Date()).getSeconds()
+    b = setTwoDigit(b)
+    let c = (new Date()).getMinutes()
+    c = setTwoDigit(c)
+    let e = (new Date()).getHours()
+    let ampm;
+    if (e === 0) {
+        ampm = 'am'
+        e = 12
+    } if (e > 12) {
+        ampm = 'pm'
+        e = e - 12
+    } else {
+        ampm = 'am'
+    }
+    e = setTwoDigit(e)
+    document.getElementById('time').innerText = `${e}:${c}:${b} ${ampm}`
+    document.getElementById('date').innerText = `${day[new Date().getDay()]}, ${new Date().getDate()} ${months[new Date().getMonth()]}, ${new Date().getFullYear()}`
+}, 1);
