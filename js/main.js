@@ -64,7 +64,7 @@ document.getElementById('btn-start').addEventListener('click', function () {
             min++
             sec = 0;
         }
-    }, 1000);
+    }, 10);
 
     document.getElementById('lap-time').classList.remove('hidden');
     document.getElementById('btn-pause').classList.remove('hidden');
