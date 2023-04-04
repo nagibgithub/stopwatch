@@ -1,3 +1,31 @@
+const day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+let b;
+let c;
+let e;
+let ampm;
+
+setInterval(() => {
+    b = (new Date()).getSeconds()
+    b = setTwoDigit(b)
+    c = (new Date()).getMinutes()
+    c = setTwoDigit(c)
+    e = (new Date()).getHours()
+    if (e === 0) {
+        ampm = 'am'
+        e = 12
+    } if (e > 12) {
+        ampm = 'pm'
+        e = e - 12
+    } else {
+        ampm = 'am'
+    }
+    e = setTwoDigit(e)
+    document.getElementById('time').innerText = `${e}:${c}:${b} ${ampm}`
+    document.getElementById('date').innerText = `${day[new Date().getDay()]}, ${new Date().getDate()} ${months[new Date().getMonth()]}, ${new Date().getFullYear()}`
+}, 1);
+
 function timeTwoDigit(time) {
     let id = time.toString();
     if (id.length === 1) {
@@ -36,7 +64,7 @@ document.getElementById('btn-start').addEventListener('click', function () {
             min++
             sec = 0;
         }
-    }, 10);
+    }, 1000);
 
     document.getElementById('lap-time').classList.remove('hidden');
     document.getElementById('btn-pause').classList.remove('hidden');
@@ -75,9 +103,10 @@ document.getElementById('lap-time').addEventListener('click', function () {
     let lapMiliSec = timeTwoDigit(miliSec);
     let lapSec = timeTwoDigit(sec);
     let lapMin = timeTwoDigit(min);
+    serialNo = timeTwoDigit(serialNo)
     document.getElementById('display-laptime').innerHTML += `
     <h3>
-        <span>${serialNo}. </span><span>${min}</span>:<span>${lapSec}</span>:<span>${lapMiliSec}</span>
+       <span>${serialNo}. <span>${e}:${c}:${b} ${ampm}</span> => </span><span>${lapMin}</span>:<span>${lapSec}</span>:<span>${lapMiliSec}</span>
     </h3>
     `
     serialNo++
@@ -90,9 +119,6 @@ document.getElementById('btn-lapclear').addEventListener('click', function () {
     document.getElementById('btn-lapclear').classList.add('hidden')
 })
 
-
-// time
-
 const setTwoDigit = (digit) => {
     let newTwoDigit = digit.toString()
     if (newTwoDigit.length === 1) {
@@ -102,27 +128,3 @@ const setTwoDigit = (digit) => {
     }
     return newTwoDigit
 }
-
-const day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-
-setInterval(() => {
-    let b = (new Date()).getSeconds()
-    b = setTwoDigit(b)
-    let c = (new Date()).getMinutes()
-    c = setTwoDigit(c)
-    let e = (new Date()).getHours()
-    let ampm;
-    if (e === 0) {
-        ampm = 'am'
-        e = 12
-    } if (e > 12) {
-        ampm = 'pm'
-        e = e - 12
-    } else {
-        ampm = 'am'
-    }
-    e = setTwoDigit(e)
-    document.getElementById('time').innerText = `${e}:${c}:${b} ${ampm}`
-    document.getElementById('date').innerText = `${day[new Date().getDay()]}, ${new Date().getDate()} ${months[new Date().getMonth()]}, ${new Date().getFullYear()}`
-}, 1);
